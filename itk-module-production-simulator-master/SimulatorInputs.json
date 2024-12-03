@@ -1,0 +1,616 @@
+{
+    "SimulationParameters": {
+        "num_modules": 20,
+        "simulation_start": "2024-11-01T09:00:00"
+    },
+    "ComponentArrivalTimes": {
+        "bare modules": {
+            "2024-11-01T09:00:00": 50,
+            "2025-01-15T09:00:00": 50,
+            "2025-02-15T09:00:00": 50,
+            "2025-03-15T09:00:00": 50
+        },
+        "flexes": {
+            "2024-11-01T09:00:00": 50,
+            "2025-01-15T09:00:00": 50,
+            "2025-02-15T09:00:00": 50,
+            "2025-03-15T09:00:00": 50
+        }
+    },
+    "WorkHours": {
+        "work_start": "09:00:00",
+        "work_end": "18:00:00",
+        "lunch_start": "12:00:00",
+        "lunch_end": "13:00:00",
+        "work_days": [0, 1, 2, 3, 4]
+    },
+    "CERNHolidays": [
+        ["2024-12-21", "2025-01-05"],
+        ["2025-04-18", "2025-04-21"],
+        ["2025-05-01", "2025-05-04"],
+        ["2025-05-29", "2025-06-01"],
+        ["2025-06-09", "2025-06-09"],
+        ["2025-09-11", "2025-09-14"],
+        ["2025-12-22", "2026-01-02"],
+        ["2026-04-03", "2026-04-06"],
+        ["2026-05-01", "2026-05-01"],
+        ["2026-05-14", "2026-05-17"],
+        ["2026-05-25", "2026-05-25"],
+        ["2026-09-10", "2026-09-13"],
+        ["2026-12-21", "2027-01-03"]
+    ],
+    "OperatorHolidays": {
+        "Operator1": [
+            ["2025-01-06", "2025-01-10"],
+            ["2025-03-10", "2025-03-14"],
+            ["2025-06-02", "2025-06-06"],
+            ["2025-08-04", "2025-08-15"],
+            ["2025-11-03", "2025-11-07"]
+        ],
+        "Operator2": [
+            ["2025-01-13", "2025-01-17"],
+            ["2025-04-22", "2025-04-25"],
+            ["2025-06-10", "2025-06-13"],
+            ["2025-07-14", "2025-07-25"],
+            ["2025-10-20", "2025-10-24"]
+        ],
+        "Operator3": [
+            ["2025-02-10", "2025-02-14"],
+            ["2025-03-17", "2025-03-21"],
+            ["2025-05-05", "2025-05-09"],
+            ["2025-08-18", "2025-08-29"],
+            ["2025-11-10", "2025-11-14"]
+        ],
+        "Operator4": [
+            ["2025-02-17", "2025-02-21"],
+            ["2025-04-14", "2025-04-17"],
+            ["2025-05-19", "2025-05-23"],
+            ["2025-07-28", "2025-08-01"],
+            ["2025-09-15", "2025-09-19"]
+        ],
+        "Operator5": [
+            ["2025-02-24", "2025-02-28"],
+            ["2025-05-12", "2025-05-16"],
+            ["2025-06-16", "2025-06-20"],
+            ["2025-08-04", "2025-08-15"],
+            ["2025-10-27", "2025-10-31"]
+        ]
+    },
+    "Operators": {
+        "Operator1": [
+			"Rec - Storage of bare modules",
+			"Rec - Storage of flexes",
+			"Rec - PDB checks of bare modules and flexes",
+			"Rec - Serial number sticker application on bare modules and flexes",
+			"Rec - Detailed Visual inspection of bare modules",
+			"Rec - Detailed Visual inspection of flexes",
+			"Rec - Overview Visual inspection of bare modules",
+			"Rec - Overview Visual inspection of flexes",
+			"Rec - PDB Upload of Detailed And Overview Visual inspection images",
+			"Rec - Metrology weights of bare modules",
+			"Rec - Metrology weights of flexes",
+			"Rec - Metrology Keyence Top of bare modules",
+			"Rec - Metrology Micrometer of flexes",
+			"Rec - PDB Upload of bare modules metrology",
+			"P - Shipping",
+			"S - Packaging",
+			"S - PDB Shipment of modules to loading sites"		
+        ],
+        "Operator2": "All_except_wire_bonding",
+        "Operator3": "All_except_wire_bonding",
+        "Operator4": ["WB - Wire-bonding"],
+        "Operator5": "All_except_wire_bonding"
+    },
+    "OperatorWorkHours": {
+        "Operator1": {
+            "Monday": [{"start": "09:00:00", "end": "18:00:00"}],
+            "Tuesday": [{"start": "09:00:00", "end": "18:00:00"}],
+            "Wednesday": [{"start": "09:00:00", "end": "18:00:00"}],
+            "Thursday": [{"start": "09:00:00", "end": "18:00:00"}],
+            "Friday": [{"start": "09:00:00", "end": "18:00:00"}]
+        },
+        "Operator2": {
+            "Monday": [{"start": "09:00:00", "end": "18:00:00"}],
+            "Tuesday": [{"start": "09:00:00", "end": "18:00:00"}],
+            "Wednesday": [{"start": "09:00:00", "end": "18:00:00"}],
+            "Thursday": [{"start": "09:00:00", "end": "18:00:00"}],
+            "Friday": [{"start": "09:00:00", "end": "18:00:00"}]
+        },
+        "Operator3": {
+            "Monday": [{"start": "09:00:00", "end": "18:00:00"}],
+            "Tuesday": [{"start": "09:00:00", "end": "18:00:00"}],
+            "Wednesday": [{"start": "09:00:00", "end": "18:00:00"}],
+            "Thursday": [{"start": "09:00:00", "end": "18:00:00"}],
+            "Friday": [{"start": "09:00:00", "end": "18:00:00"}]
+        },
+        "Operator4": {
+            "Monday": [{"start": "09:00:00", "end": "18:00:00"}],
+            "Tuesday": [{"start": "09:00:00", "end": "18:00:00"}],
+            "Wednesday": [{"start": "09:00:00", "end": "18:00:00"}],
+            "Thursday": [{"start": "09:00:00", "end": "18:00:00"}],
+            "Friday": [{"start": "09:00:00", "end": "18:00:00"}]
+        },
+        "Operator5": {
+            "Monday": [{"start": "09:00:00", "end": "18:00:00"}],
+            "Tuesday": [{"start": "09:00:00", "end": "18:00:00"}],
+            "Wednesday": [{"start": "09:00:00", "end": "18:00:00"}],
+            "Thursday": [{"start": "09:00:00", "end": "18:00:00"}],
+            "Friday": [{"start": "09:00:00", "end": "18:00:00"}]
+        }
+    },
+    "StagesAndSteps": [
+        {
+            "Stage": "Reception",
+            "Step": "Rec - Storage of bare modules",
+            "Duration": 20,
+            "Capacity": 500
+        },
+        {
+            "Stage": "Reception",
+            "Step": "Rec - Storage of flexes",
+            "Duration": 20,
+            "Capacity": 500
+        },
+        {
+            "Stage": "Reception",
+            "Step": "Rec - PDB checks of bare modules and flexes",
+            "Duration": 120,
+            "Capacity": 500
+        },
+        {
+            "Stage": "Reception",
+            "Step": "Rec - Serial number sticker application on bare modules and flexes",
+            "Duration": 60,
+            "Capacity": 50
+        },
+        {
+            "Stage": "Reception",
+            "Step": "Rec - Detailed Visual inspection of bare modules",
+            "Duration": 15,
+            "Capacity": 1
+        },
+        {
+            "Stage": "Reception",
+            "Step": "Rec - Detailed Visual inspection of flexes",
+            "Duration": 15,
+            "Capacity": 1
+        },
+        {
+            "Stage": "Reception",
+            "Step": "Rec - Overview Visual inspection of bare modules",
+            "Duration": 5,
+            "Capacity": 1
+        },
+        {
+            "Stage": "Reception",
+            "Step": "Rec - Overview Visual inspection of flexes",
+            "Duration": 5,
+            "Capacity": 1
+        },
+        {
+            "Stage": "Reception",
+            "Step": "Rec - PDB Upload of Detailed And Overview Visual inspection images",
+            "Duration": 60,
+            "Capacity": {
+                "20": "2024-11-01T09:00:00",
+                "100": "2025-01-15T09:00:00"
+            }
+        },
+        {
+            "Stage": "Reception",
+            "Step": "Rec - Metrology weights of bare modules",
+            "Duration": 2,
+            "Capacity": 1
+        },
+        {
+            "Stage": "Reception",
+            "Step": "Rec - Metrology weights of flexes",
+            "Duration": 2,
+            "Capacity": 1
+        },
+        {
+            "Stage": "Reception",
+            "Step": "Rec - Metrology Keyence Top of bare modules",
+            "Duration": 30,
+            "Capacity": {
+                "2": "2024-11-01T09:00:00",
+                "14": "2025-01-15T09:00:00"
+            }
+        },
+        {
+            "Stage": "Reception",
+            "Step": "Rec - Metrology Keyence Bottom of bare modules",
+            "Duration": 30,
+            "Capacity": {
+                "2": "2024-11-01T09:00:00",
+                "4": "2025-01-15T09:00:00"
+            }
+        },
+        {
+            "Stage": "Reception",
+            "Step": "Rec - Metrology Micrometer of flexes",
+            "Duration": 5,
+            "Capacity": 1
+        },
+        {
+            "Stage": "Reception",
+            "Step": "Rec - PDB Upload of bare modules metrology",
+            "Duration": 60,
+            "Capacity": 50
+        },
+        {
+            "Stage": "Reception",
+            "Step": "Rec - PDB Upload of flex metrology",
+            "Duration": 60,
+            "Capacity": 50
+        },
+        {
+            "Stage": "Reception",
+            "Step": "Rec - Sensor IV of bare modules",
+            "Duration": 10,
+            "Capacity": 1
+        },
+        {
+            "Stage": "Reception",
+            "Step": "Rec - PDB Upload of Sensor IV",
+            "Duration": 60,
+            "Capacity": 50
+        },
+        {
+            "Stage": "Flex-Attach",
+            "Step": "FA - Glue flex to bare module",
+            "Duration": 20,
+            "Capacity": {
+                "2": "2024-11-01T09:00:00",
+                "8": "2024-11-30T09:00:00"
+            }
+        },
+        {
+            "Stage": "Flex-Attach",
+            "Step": "FA - Flex-Attach Glue curing",
+            "Duration": 480,
+            "Capacity": {
+                "2": "2024-11-01T09:00:00",
+                "8": "2024-11-30T09:00:00"
+            }
+        },
+        {
+            "Stage": "Flex-Attach",
+            "Step": "FA - Detailed visual inspection of module",
+            "Duration": 5,
+            "Capacity": 1
+        },
+        {
+            "Stage": "Flex-Attach",
+            "Step": "FA - Overview visual inspection of module",
+            "Duration": 5,
+            "Capacity": 1
+        },
+        {
+            "Stage": "Flex-Attach",
+            "Step": "FA - PDB Upload of Visual inspection module",
+            "Duration": 60,
+            "Capacity": 50
+        },
+        {
+            "Stage": "Flex-Attach",
+            "Step": "FA - Metrology weights of module",
+            "Duration": 2,
+            "Capacity": 1
+        },
+        {
+            "Stage": "Flex-Attach",
+            "Step": "FA - PDB Upload of module metrology",
+            "Duration": 60,
+            "Capacity": 50
+        },
+        {
+            "Stage": "Wire-bonding",
+            "Step": "WB - Prepare wire-bonding requests",
+            "Duration": 20,
+            "Capacity": 50
+        },
+        {
+            "Stage": "Wire-bonding",
+            "Step": "WB - Wire-bonding",
+            "Duration": 120,
+            "Capacity": 2
+        },
+        {
+            "Stage": "Wire-bonding",
+            "Step": "WB - PDB Upload of wire-bonding pull-test results",
+            "Duration": 60,
+            "Capacity": 50
+        },
+        {
+            "Stage": "Initial",
+            "Step": "I - Warm Electrical Testing",
+            "Duration": 180,
+            "Capacity": {
+                "3": "2024-11-01T09:00:00",
+                "4": "2024-11-15T09:00:00"
+            }
+        },
+        {
+            "Stage": "Initial",
+            "Step": "I - Cold Electrical Testing",
+            "Duration": 240,
+            "Capacity": {
+                "1": "2024-11-01T09:00:00",
+                "4": "2025-01-15T09:00:00"
+            }
+        },
+        {
+            "Stage": "Parylene",
+            "Step": "P - Masking",
+            "Duration": 60,
+            "Capacity": 1
+        },
+        {
+            "Stage": "Parylene",
+            "Step": "P - Mask Curing",
+            "Duration": 720,
+            "Capacity": 10
+        },
+        {
+            "Stage": "Parylene",
+            "Step": "P - Overview visual inspection after masking",
+            "Duration": 2,
+            "Capacity": 1
+        },
+        {
+            "Stage": "Parylene",
+            "Step": "P - Shipping",
+            "Duration": 120,
+            "Capacity": 10
+        },
+        {
+            "Stage": "Parylene",
+            "Step": "P - Transit",
+            "Duration": 20160,
+            "Capacity": 10
+        },
+        {
+            "Stage": "Parylene",
+            "Step": "P - Overview visual inspection after transit",
+            "Duration": 2,
+            "Capacity": 1
+        },
+        {
+            "Stage": "Parylene",
+            "Step": "P - Demasking",
+            "Duration": 60,
+            "Capacity": 1
+        },
+        {
+            "Stage": "Parylene",
+            "Step": "P - Overview visual inspection after unmasking",
+            "Duration": 2,
+            "Capacity": 1
+        },
+        {
+            "Stage": "Parylene",
+            "Step": "P - PDB Upload of module visual inspection",
+            "Duration": 60,
+            "Capacity": 50
+        },
+        {
+            "Stage": "Parylene",
+            "Step": "P - Post Parylene Warm",
+            "Duration": 180,
+            "Capacity": {
+                "1": "2024-11-01T09:00:00",
+                "5": "2025-01-15T09:00:00"
+            }
+        },
+        {
+            "Stage": "Parylene",
+            "Step": "P - Post Parylene cold chiller cooldown",
+            "Duration": 120,
+            "Capacity": 1
+        },
+        {
+            "Stage": "Parylene",
+            "Step": "P - Post Parylene Cold",
+            "Duration": 180,
+            "Capacity": {
+                "1": "2024-11-01T09:00:00",
+                "5": "2025-01-15T09:00:00"
+            }
+        },
+        {
+            "Stage": "Parylene",
+            "Step": "P - Post Parylene X-ray",
+            "Duration": 40,
+            "Capacity": 1
+        },
+        {
+            "Stage": "Wire-Bond Protection",
+            "Step": "WBP - Preparation, glue mixing, canopy attachment",
+            "Duration": 30,
+            "Capacity": {
+                "1": "2024-11-01T09:00:00",
+                "5": "2025-01-15T09:00:00"
+            }
+        },
+        {
+            "Stage": "Wire-Bond Protection",
+            "Step": "WBP - Wire-Bond Protection Glue curing",
+            "Duration": 480,
+            "Capacity": {
+                "1": "2024-11-01T09:00:00",
+                "5": "2025-01-15T09:00:00"
+            }
+
+        },
+        {
+            "Stage": "Wire-Bond Protection",
+            "Step": "WBP - Visual Inspection",
+            "Duration": 5,
+            "Capacity": 1
+        },
+        {
+            "Stage": "Wire-Bond Protection",
+            "Step": "WBP - Mass Measurement",
+            "Duration": 2,
+            "Capacity": 1
+        },
+        {
+            "Stage": "Wire-Bond Protection",
+            "Step": "WBP - Resistance Measurement",
+            "Duration": 5,
+            "Capacity": 1
+        },
+        {
+            "Stage": "Wire-Bond Protection",
+            "Step": "WBP - PDB Upload of visual inspection mass and resistance",
+            "Duration": 5,
+            "Capacity": 1
+        },
+        {
+            "Stage": "Wire-Bond Protection",
+            "Step": "WBP - MHT-PFA",
+            "Duration": 60,
+            "Capacity": {
+                "1": "2024-11-01T09:00:00",
+                "4": "2025-01-15T09:00:00"
+            }
+        },
+        {
+            "Stage": "Thermal Cycling",
+            "Step": "TC - Cycle",
+            "Duration": 840,
+            "Capacity": {
+                "1": "2024-11-01T09:00:00",
+                "4": "2024-12-01T09:00:00",
+                "8": "2025-02-01T09:00:00",
+                "12": "2025-02-15T09:00:00"
+            }
+        },
+        {
+            "Stage": "Thermal Cycling",
+            "Step": "TC - PDB Upload of thermal cycling data",
+            "Duration": 20,
+            "Capacity": 20
+        },
+        {
+            "Stage": "Thermal Cycling",
+            "Step": "TC - Back side metrology",
+            "Duration": 10,
+            "Capacity": 1
+        },
+        {
+            "Stage": "Thermal Cycling",
+            "Step": "TC - PDB Upload of back side metrology",
+            "Duration": 20,
+            "Capacity": 20
+        },
+        {
+            "Stage": "Long Term Stability",
+            "Step": "LTS - MHT-PFA",
+            "Duration": 60,
+            "Capacity": {
+                "1": "2024-11-01T09:00:00",
+                "4": "2025-01-15T09:00:00"
+            }
+        },
+        {
+            "Stage": "Final",
+            "Step": "F - Warm",
+            "Duration": 180,
+            "Capacity": {
+                "3": "2024-11-01T09:00:00",
+                "4": "2024-11-15T09:00:00"
+            }
+        },
+        {
+            "Stage": "Final",
+            "Step": "F - Cold",
+            "Duration": 240,
+            "Capacity": {
+                "1": "2024-11-01T09:00:00",
+                "4": "2025-01-15T09:00:00"
+            }
+        },
+        {
+            "Stage": "Final",
+            "Step": "F - X-ray",
+	        "Duration": 40,
+	        "Capacity": 1
+        },
+        {
+            "Stage": "Shipping",
+            "Step": "S - Packaging",
+            "Duration": 10,
+            "Capacity": 8
+        },
+        {
+            "Stage": "Shipping",
+            "Step": "S - PDB Shipment of modules to loading sites",
+            "Duration": 60,
+            "Capacity": 50
+        }
+    ],
+    "StepsRequiringOperator": [
+        "Rec - Storage of bare modules",
+		"Rec - Storage of flexes",
+		"Rec - PDB checks of bare modules and flexes",
+		"Rec - Serial number sticker application on bare modules and flexes",
+		"Rec - Detailed Visual inspection of bare modules",
+		"Rec - Detailed Visual inspection of flexes",
+		"Rec - Overview Visual inspection of bare modules",
+		"Rec - Overview Visual inspection of flexes",
+		"Rec - PDB Upload of Detailed And Overview Visual inspection images",
+		"Rec - Metrology weights of bare modules",
+		"Rec - Metrology weights of flexes",
+		"Rec - Metrology Keyence Top of bare modules",
+		"Rec - Metrology Micrometer of flexes",
+		"Rec - PDB Upload of bare modules metrology",
+		"Rec - Sensor IV of bare modules",
+		"Rec - PDB Upload of Sensor IV",
+		"FA - Glue flex to bare module",
+		"FA - Overview visual inspection of module",
+		"FA - Detailed visual inspection of module",
+		"FA - PDB Upload of Visual inspection module",
+		"FA - Metrology weights of module",
+		"FA - PDB Upload of module metrology",
+		"WB - Prepare wire-bonding requests",
+		"WB - Wire-bonding",
+		"WB - PDB Upload of wire-bonding pull-test results",
+		"P - Masking",
+		"P - Overview visual inspection after masking",
+		"P - Shipping",
+		"P - Overview visual inspection after transit",
+		"P - Demasking",
+		"P - Overview visual inspection after unmasking",
+		"P - PDB Upload of module visual inspection",
+		"P - Post Parylene X-ray",
+		"WBP - Preparation, glue mixing, canopy attachment",
+		"WBP - Visual Inspection",
+		"WBP - Mass Measurement",
+		"WBP - Resistance Measurement",
+		"WBP - PDB Upload of visual inspection mass and resistance",
+		"TC - PDB Upload of thermal cycling data",
+		"TC - Back side metrology",
+		"TC - PDB Upload of back side metrology",
+		"F - X-ray",
+		"S - Packaging",
+		"S - PDB Shipment of modules to loading sites"		
+    ],
+    "StepsLaunchByOperator": [
+        "FA - Flex-Attach Glue curing",
+		"I - Warm Electrical Testing",
+		"I - Cold Electrical Testing",
+		"P - Mask Curing",
+		"P - Transit",
+		"P - Post Parylene Warm",
+		"P - Post Parylene cold chiller cooldown",
+		"P - Post Parylene Cold",
+		"WBP - Wire-Bond Protection Glue curing",
+		"WBP - MHT-PFA",
+		"TC - Cycle",
+		"LTS - MHT-PFA",
+		"F - Warm",
+		"F - Cold"		
+    ]	
+}
