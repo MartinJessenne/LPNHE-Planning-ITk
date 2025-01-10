@@ -22,6 +22,7 @@ import time
 from tqdm import tqdm
 from functools import lru_cache
 
+
 # Start timing the script execution
 start_time = time.time()
 
@@ -224,6 +225,7 @@ def is_working_time(time, operator=None):
     return False
 
 # Function to check if the duration fits within working hours
+# Maybe the issue might be solved here by adding a threshold for the duration
 def is_within_working_hours(start_time, duration, requires_operator_presence=False):
     end_time = start_time + timedelta(minutes=duration)
     # Check if start_time and end_time are within working hours

@@ -1,0 +1,6 @@
+
+str.endswith(suffix[, start[, end]])
+
+    Renvoie True si la chaîne se termine par suffix, sinon False. suffix peut aussi être un n-uplet 
+    de suffixes à rechercher. Si l'argument optionnel start est donné, le test se fait à partir de cette 
+    position. Si l'argument optionnel end est fourni, la comparaison s'arrête à cette position.
