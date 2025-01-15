@@ -1,22 +1,26 @@
 Steps;Quantity;Launching Time
 Rec - Storage of bare modules WIP;;
-Rec - Storage of bare modules Ready;50;
+Rec - Storage of bare modules Ready;0;
 Rec - Storage of flexes WIP;;
-Rec - Storage of flexes Ready;50;
-Rec - PDB checks of bare modules and flexes WIP;;
-Rec - PDB checks of bare modules and flexes Ready;;
-Rec - Metrology and Visual inspection of bare modules or flexes WIP;;
-Rec - Metrology and Visual inspection of bare modules or flexes Ready;;
+Rec - Storage of flexes Ready;0;
+Rec - PDB checks of bare modules WIP;;
+Rec - PDB checks of bare modules Ready;;
+Rec - PDB checks of flexes WIP;;
+Rec - PDB checks of flexes Ready;;
+Rec - Metrology and Visual inspection of bare modules WIP;;
+Rec - Metrology and Visual inspection of bare modules Ready;;
+Rec - Metrology and Visual inspection of flexes WIP;;
+Rec - Metrology and Visual inspection of flexes Ready;;
 Rec - Metrology weights of bare modules WIP;;
 Rec - Metrology weights of bare modules Ready;;
 Rec - Metrology weights of flexes WIP;;
 Rec - Metrology weights of flexes Ready;;
 Rec - Sensor IV of bare modules WIP;;
 Rec - Sensor IV of bare modules Ready;;
-FA - Glue flex to bare module WIP;2;2025-01-08T18:00:00
-FA - Glue flex to bare module Ready;2;
-FA - Flex-Attach Glue curing WIP;;
-FA - Flex-Attach Glue curing Ready;;
+FA - Glue flex to bare module WIP;;
+FA - Glue flex to bare module Ready;;
+FA - Flex-Attach Glue curing WIP;2;2025-01-08T18:00:00
+FA - Flex-Attach Glue curing Ready;2;
 FA - visual inspection of module WIP;;
 FA - visual inspection of module Ready;;
 FA - Metrology weights of module WIP;;

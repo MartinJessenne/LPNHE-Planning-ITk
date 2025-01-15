@@ -5,8 +5,9 @@ from dateutil import rrule, parser
 from dataclasses import dataclass, field
 from datetime import date, datetime, timedelta
 from intervaltree import Interval, IntervalTree
-from generate_operators_availability import generate_operator_availability
+from generate_operators_availability import generate_operators_availability
 from TasksHierarchy import tasks_by_priority
+from update_log import update_log
 
 # Definition of the different classes
 @dataclass
@@ -14,16 +15,20 @@ class Operator:
     name: str
     skills: list
     holidays: IntervalTree
-    availabilty: IntervalTree = field(default_factory=IntervalTree)
-    shift: list = field(default_factory=list)
+    availability: IntervalTree = field(default_factory=IntervalTree)
+    shift: list = field(default_factory=list)   # Is it used ?
 
 @dataclass
 class Step:
     name: str
-    step_number: int
+    previous_steps: list
     duration: timedelta
+    required: timedelta
     capacity: int
     log: pd.DataFrame
+
+    def __repr__(self):
+        return f"Step {self.name}, duration {self.duration}, capacity {self.capacity}, log {self.log}"
     
 # Load data from the JSON configuration file
 with open("SimulatorInputs.json", "r") as file:
@@ -63,7 +68,7 @@ for id, operator in enumerate(data["Operators"]):
     operator_holidays_list = operator_holidays.tolist()
     operator_holidays_tree = IntervalTree(operator_holidays_list)
 
-    globals()[f"Operator{id + 1}"] = Operator(name=f"Operator{id + 1}", skills=operator, holidays=operator_holidays_tree)
+    globals()[f"Operator{id + 1}"] = Operator(name=f"Operator{id + 1}", skills=data["Operators"][operator], holidays=operator_holidays_tree)
     operators.append(globals()[f"Operator{id + 1}"])
 
 
@@ -71,26 +76,57 @@ for id, operator in enumerate(data["Operators"]):
 # the entry and exit dates of the modules at each step
 
 Chronologically_Ordered_Steps = {}
-for id, step in enumerate(data["StagesAndSteps"]):
-    step_name = step["Step"].replace("-", "_").replace(" ", "_")
-    globals()[step_name] = Step(name=step["Step"], step_number=id, duration=timedelta(minutes = step["Duration"]), capacity= step["Capacity"],log=pd.DataFrame(columns=["Entry_Date", "Exit_Date"]))
+for step in data["StagesAndSteps"]:
+    step_name = step["Step"].replace("-", "_").replace(" ", "_")    # Just converting the name to python valid name without blank spaces and
+
+    if step["Previous"][0] == "None":
+        globals()[step_name] = Step(name=step["Step"], previous_steps=[None], duration=timedelta(minutes = step["Duration"]),required=timedelta(minutes = step["Required"]), capacity= step["Capacity"],log=pd.DataFrame(columns=["Entry_Date", "Exit_Date"]))
+
+    else:
+        previous_steps = []
+        for prev_step in step["Previous"]:
+            previous_steps.append(Chronologically_Ordered_Steps[prev_step])
+            globals()[step_name] = Step(name=step["Step"], previous_steps=previous_steps, duration=timedelta(minutes = step["Duration"]), required=timedelta(minutes = step["Required"]), capacity= step["Capacity"],log=pd.DataFrame(columns=["Entry_Date", "Exit_Date"]))
     Chronologically_Ordered_Steps |= {step["Step"]: globals()[step_name]}
 
 time: datetime = simulation_start
-finished_modules_count: int = 0 #Might be a duplicate
+finished_modules_count: int = sum(S___PDB_Shipment_of_modules_to_loading_sites.log["Exit_Date"].notna())
 
 # Initialization of the list of the differents tasks and steps to be done
 tasks_to_do: list = [task['Step'] for task in data["StagesAndSteps"]]
 
 # Initialization of the dataframe that will contain the assignments of the operators
-operators_assignments: pd.DataFrame = pd.DataFrame(columns=[tasks_to_do], index=[simulation_start])
+operators_assignments: pd.DataFrame = pd.DataFrame(columns=tasks_to_do, dtype=object)
 
 
 while (time < simulation_end or finished_modules_count < total_modules_number):
-    
-    generate_operator_availability(time)
+    generate_operators_availability(time)    # TODO: Duplication of computation, we could do it once for the day
     to_do: list = tasks_by_priority(time)
+    was_a_task_assigned: bool = False
     for task in to_do:
         # if two operators are available, and qualified for the task we assign them to the task
-        if 
-        # else we increment time by 15 minutes
+        task_duration: Interval = Interval(time, time + task.required, task.name)
+        operators_available: list = [operator for operator in operators if operator.availability.overlaps(task_duration) and task.name in operator.skills]
+
+        # For now we chose at random two of the available operators to perform the task, the law according to which we chose the operators my be reweighted according to their skills
+        # Wire Bonding journée entière et 2 fois par semaine. 
+        if len(operators_available) >= 2:
+            chosen_operators: list = np.random.choice(operators_available, 2, replace=False)
+            first_operator, second_operator = chosen_operators
+            first_operator.availability.chop(time, time + task.required)
+            second_operator.availability.chop(time, time + task.required)
+            assigned_operators = (first_operator.name, second_operator.name)
+            operators_assignments.loc[time, task.name] = assigned_operators
+            print(f"A task was assigned at {time} to {assigned_operators} for the task {task.name}")
+            update_log(task, time)
+            print(f"task log : \n{task.log}\n\n")
+            for previous_steps in task.previous_steps:
+                print(f"previous step log : \n{previous_steps.log}\n\n")
+            time += task.required
+            was_a_task_assigned = True
+            break
+    
+    if was_a_task_assigned == False:
+        time += timedelta(minutes=60)
+
+
