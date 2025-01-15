@@ -15,7 +15,7 @@ for index, row in state_of_production.iterrows():   # I prefer to work with lite
         for task in iter(Chronologically_Ordered_Steps):
             if task in index:   # Looks for the task associated with the row TODO : suppress this loop by implementing yet another lookup table
                 if pd.isna(state_of_production.loc[index, "Launching Time"]):
-                    Time_ready_by_simulation_start = simulation_start - timedelta(minutes=Chronologically_Ordered_Steps[task].duration)   # In the last part we extract the duration associated with the task
+                    Time_ready_by_simulation_start = simulation_start - Chronologically_Ordered_Steps[task].duration  # In the last part we extract the duration associated with the task
                     state_of_production.loc[index, "Launching Time"] = Time_ready_by_simulation_start
 
 # Now we fill all those initial data into the log attribute of each step
@@ -24,24 +24,38 @@ for Step in Chronologically_Ordered_Steps.values():
     row_WIP = state_of_production.loc[Step.name + " WIP"]
     df_Ready = pd.DataFrame([[row_Ready.loc["Launching Time"],pd.NaT] for _ in range(row_Ready.loc["Quantity"])],columns=["Entry_Date", "Exit_Date"])
     df_WIP = pd.DataFrame([[row_WIP.loc["Launching Time"],pd.NaT] for _ in range(row_WIP.loc["Quantity"])],columns=["Entry_Date", "Exit_Date"])
-    Step.log = pd.concat([Step.log, df_Ready, df_WIP], ignore_index=True)   # TODO : maybe numpy arrays are better suited in this context, since it's a single type of datatype
+    Step.log = pd.concat([Step.log, df_Ready, df_WIP], ignore_index=True)   # TODO : maybe numpy arrays are better suited in this context, since it's a single type of datatype, in addition to that this line raises a warning
 
-Steps = list(reversed(Chronologically_Ordered_Steps.values()))[:-1]
-Previous_Steps = list(reversed(Chronologically_Ordered_Steps.values()))[2:]
-
-
-def tasks_by_priority(time: timedelta) -> list:
+def tasks_by_priority(time: timedelta) -> list: # Returns the list of tasks that can be done at the current time
 
     steps_to_do = []
 
-    for Step,Previous_Step in zip(Steps, Previous_Steps):
+    for step in list(reversed(Chronologically_Ordered_Steps.values())): 
+        # First step, check if the step is ready to process new modules
+        condition = sum(pd.isna(step.log["Exit_Date"])) >= step.capacity # We check if the number of steps not exited yet is greater than the capacity
+        if condition:  # If the step is not ready to process new modules
+            continue    # we break the loop and go to the next step
 
-        time_array = np.full_like(Previous_Step.log.loc[:,"Entry_Date"], time)
-        time_spent_in_task = time_array - Previous_Step.log.loc[:,"Entry_Date"]
-        duration_delta = timedelta(minutes=Previous_Step.duration) 
+        if step.previous_steps[0] is None:  # If previous_steps is None. That means that this the first step                        
+            continue    # By default the first step is always ready, in fact that means that there are not enough components left
 
-    if sum(time_spent_in_task >= duration_delta) >= Step.capacity:
-        steps_to_do.append(Step)
+        else:
+            # Second step, we compute the reception capacity of the step
+            #reception_capacity = step.capacity - sum(pd.isna(step.log["Exit_Date"]))  # We compute the number of modules ready to be processed in the next step
+            
+            # Now we check if among the previous steps there are enough modules ready to be processed in the next step
+            ready_to_be_processed: bool = True
+            for previous_step in Step.previous_steps:   
+
+                previous_time_array: np.ndarray = np.full_like(previous_step.log.loc[:,"Entry_Date"], time) 
+                time_spent_in_previous_task: pd.DataFrame = previous_time_array - previous_step.log.loc[:,"Entry_Date"]   # Displays the time spent in the previous task for each module
+                modules_ready: int = sum((time_spent_in_previous_task >= previous_step.duration) & (pd.isna(previous_step.log["Exit_Date"])))      # If there are not enough modules ready to be processed in the previous steps
+                if modules_ready <= 0:                                                       
+                    ready_to_be_processed = False
+            
+            if ready_to_be_processed:
+                steps_to_do.append(step)
+
 
     return steps_to_do
         

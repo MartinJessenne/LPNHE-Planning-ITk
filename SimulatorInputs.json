@@ -105,10 +105,12 @@
             ["2025-10-27", "2025-10-31"]
         ]
     },
-    "Operators": {"Operator1": [
+    "Operators": 
+    {"Operator1": [
 	    "Rec - Storage of bare modules",
 	    "Rec - Storage of flexes",
-	    "Rec - PDB checks of bare modules and flexes",
+	    "Rec - PDB checks of bare modules",
+        "Rec - PDB checks of flexes",
 	    "Rec - Metrology and Visual inspection of bare modules or flexes",
 	    "Rec - Metrology weights of bare modules",
 	    "Rec - Metrology weights of flexes",
@@ -149,13 +151,16 @@
 	    "S - Packaging",
 	    "S - PDB Shipment of modules to loading sites"
         ],
-        "Operator2": [	    "WB - Prepare wire-bonding requests",
+        "Operator2": [	    
+        "WB - Prepare wire-bonding requests",
 	    "WB - Wire-bonding",
 	    "WB - PDB Upload of wire-bonding pull-test results"
-		     ],
-        "Operator3": [	    "Rec - Storage of bare modules",
+		],
+        "Operator3": [
+        "Rec - Storage of bare modules",
 	    "Rec - Storage of flexes",
-	    "Rec - PDB checks of bare modules and flexes",
+	    "Rec - PDB checks of bare modules",
+        "Rec - PDB checks of flexes",
 	    "Rec - Metrology and Visual inspection of bare modules or flexes",
 	    "Rec - Metrology weights of bare modules",
 	    "Rec - Metrology weights of flexes",
@@ -199,14 +204,53 @@
 	    "S - Packaging",
 	    "S - PDB Shipment of modules to loading sites"
         ],
-
-        "Operator4": [	    "WB - Prepare wire-bonding requests",
+        "Operator4": [	    
+        "WB - Prepare wire-bonding requests",
 	    "WB - Wire-bonding",
 	    "WB - PDB Upload of wire-bonding pull-test results"
-		     ],
-        "Operator6": [	    "Rec - Storage of bare modules",
+		],        
+        "Operator5": [
+        "Rec - Storage of bare modules",
+        "Rec - Storage of flexes",
+        "Rec - PDB checks of bare modules",
+        "Rec - PDB checks of flexes",
+        "Rec - Metrology and Visual inspection of bare modules or flexes",
+        "Rec - Metrology weights of bare modules",
+        "Rec - Metrology weights of flexes",
+        "Rec - Sensor IV of bare modules",
+        "FA - Glue flex to bare module",
+        "FA - Flex-Attach Glue curing",
+        "FA - visual inspection of module",
+        "FA - Metrology weights of module",
+        "I - Warm Electrical Testing",
+        "I - Cold Electrical Testing",
+        "P - Masking",
+        "P - Mask Curing",
+        "P - visual inspection after masking",
+        "P - Shipping",
+        "P - Transit",
+        "P - visual inspection after transit",
+        "P - Demasking",
+        "P - visual inspection after unmasking",
+        "P - Post Parylene Warm",
+        "P - Post Parylene cold chiller cooldown",
+        "P - Post Parylene Cold",
+        "P - Post Parylene X-ray",
+        "TC - Cycle",
+        "TC - PDB Upload of thermal cycling data",
+        "TC - Back side metrology",
+        "TC - PDB Upload of back side metrology",
+        "LTS - MHT-PFA",
+        "F - Warm",
+        "F - Cold",
+        "F - X-ray",
+        "S - Packaging",
+        "S - PDB Shipment of modules to loading sites"],
+        "Operator6": [
+        "Rec - Storage of bare modules",
 	    "Rec - Storage of flexes",
-	    "Rec - PDB checks of bare modules and flexes",
+	    "Rec - PDB checks of bare modules",
+        "Rec - PDB checks of flexes",
 	    "Rec - Metrology and Visual inspection of bare modules or flexes",
 	    "Rec - Metrology weights of bare modules",
 	    "Rec - Metrology weights of flexes",
@@ -248,15 +292,12 @@
 	    "F - Cold",
 	    "F - X-ray",
 	    "S - Packaging",
-	    "S - PDB Shipment of modules to loading sites"
-		     ],
-        "Operator5": "All_except_wire_bonding",
-        "Operator8": "All_except_wire_bonding",
-        "Operator9": "All_except_wire_bonding",
+	    "S - PDB Shipment of modules to loading sites"],
         "Operator7": [
 	    "Rec - Storage of bare modules",
 	    "Rec - Storage of flexes",
-	    "Rec - PDB checks of bare modules and flexes",
+	    "Rec - PDB checks of bare modules",
+        "Rec - PDB checks of flexes",
 	    "Rec - Metrology and Visual inspection of bare modules or flexes",
 	    "Rec - Metrology weights of bare modules",
 	    "Rec - Metrology weights of flexes",
@@ -299,10 +340,85 @@
 	    "F - X-ray",
 	    "S - Packaging",
 	    "S - PDB Shipment of modules to loading sites"	],
-       "Operator10": [
+        "Operator8": [
+        "Rec - Storage of bare modules",
+	    "Rec - Storage of flexes",
+	    "Rec - PDB checks of bare modules",
+        "Rec - PDB checks of flexes",
+	    "Rec - Metrology and Visual inspection of bare modules or flexes",
+	    "Rec - Metrology weights of bare modules",
+	    "Rec - Metrology weights of flexes",
+	    "Rec - Sensor IV of bare modules",
+	    "FA - Glue flex to bare module",
+	    "FA - Flex-Attach Glue curing",
+	    "FA - visual inspection of module",
+	    "FA - Metrology weights of module",
+	    "I - Warm Electrical Testing",
+	    "I - Cold Electrical Testing",
+	    "P - Masking",
+	    "P - Mask Curing",
+	    "P - visual inspection after masking",
+	    "P - Shipping",
+	    "P - Transit",
+	    "P - visual inspection after transit",
+	    "P - Demasking",
+	    "P - visual inspection after unmasking",
+	    "P - Post Parylene Warm",
+	    "P - Post Parylene cold chiller cooldown",
+	    "P - Post Parylene Cold",
+	    "P - Post Parylene X-ray",
+	    "TC - Cycle",
+	    "TC - PDB Upload of thermal cycling data",
+	    "TC - Back side metrology",
+	    "TC - PDB Upload of back side metrology",
+	    "LTS - MHT-PFA",
+	    "F - Warm",
+	    "F - Cold",
+	    "F - X-ray",
+	    "S - Packaging",
+	    "S - PDB Shipment of modules to loading sites"],
+        "Operator9": [
+        "Rec - Storage of bare modules",
+	    "Rec - Storage of flexes",
+	    "Rec - PDB checks of bare modules",
+        "Rec - PDB checks of flexes",
+	    "Rec - Metrology and Visual inspection of bare modules or flexes",
+	    "Rec - Metrology weights of bare modules",
+	    "Rec - Metrology weights of flexes",
+	    "Rec - Sensor IV of bare modules",
+	    "FA - Glue flex to bare module",
+	    "FA - Flex-Attach Glue curing",
+	    "FA - visual inspection of module",
+	    "FA - Metrology weights of module",
+	    "I - Warm Electrical Testing",
+	    "I - Cold Electrical Testing",
+	    "P - Masking",
+	    "P - Mask Curing",
+	    "P - visual inspection after masking",
+	    "P - Shipping",
+	    "P - Transit",
+	    "P - visual inspection after transit",
+	    "P - Demasking",
+	    "P - visual inspection after unmasking",
+	    "P - Post Parylene Warm",
+	    "P - Post Parylene cold chiller cooldown",
+	    "P - Post Parylene Cold",
+	    "P - Post Parylene X-ray",
+	    "TC - Cycle",
+	    "TC - PDB Upload of thermal cycling data",
+	    "TC - Back side metrology",
+	    "TC - PDB Upload of back side metrology",
+	    "LTS - MHT-PFA",
+	    "F - Warm",
+	    "F - Cold",
+	    "F - X-ray",
+	    "S - Packaging",
+	    "S - PDB Shipment of modules to loading sites"],
+        "Operator10": [
 	    "Rec - Storage of bare modules",
 	    "Rec - Storage of flexes",
-	    "Rec - PDB checks of bare modules and flexes",
+	    "Rec - PDB checks of bare modules",
+        "Rec - PDB checks of flexes",
 	    "Rec - Metrology and Visual inspection of bare modules or flexes",
 	    "Rec - Metrology weights of bare modules",
 	    "Rec - Metrology weights of flexes",
@@ -422,279 +538,388 @@
         {
             "Stage": "Reception",
             "Step": "Rec - Storage of bare modules",
+            "Previous": ["None"],
             "Duration": 10,
+            "Required": 10,
             "Capacity": 50
         },
         {
             "Stage": "Reception",
             "Step": "Rec - Storage of flexes",
+            "Previous": ["None"],
             "Duration": 10,
+            "Required": 10,
             "Capacity": 50
         },
         {
             "Stage": "Reception",
-            "Step": "Rec - PDB checks of bare modules and flexes",
+            "Step": "Rec - PDB checks of bare modules",
+            "Previous": ["Rec - Storage of bare modules"],
             "Duration": 10,
+            "Required": 10,
             "Capacity": 20
         },
         {
             "Stage": "Reception",
-            "Step": "Rec - Metrology and Visual inspection of bare modules or flexes",
+            "Step": "Rec - PDB checks of flexes",
+            "Previous": ["Rec - Storage of flexes"],
+            "Duration": 10,
+            "Required": 10,
+            "Capacity": 20
+        }
+        ,
+        {
+            "Stage": "Reception",
+            "Step": "Rec - Metrology and Visual inspection of bare modules",
+            "Previous": ["Rec - PDB checks of bare modules"],
             "Duration": 20,
+            "Required": 20,
             "Capacity": 1
         },
         {
             "Stage": "Reception",
+            "Step": "Rec - Metrology and Visual inspection of flexes",
+            "Previous": ["Rec - PDB checks of flexes"],
+            "Duration": 20,
+            "Required": 20,
+            "Capacity": 1 
+        }
+        ,
+        {
+            "Stage": "Reception",
             "Step": "Rec - Metrology weights of bare modules",
+            "Previous": ["Rec - Metrology and Visual inspection of bare modules"],
             "Duration": 2,
+            "Required": 2,
             "Capacity": 1
         },
         {
             "Stage": "Reception",
             "Step": "Rec - Metrology weights of flexes",
+            "Previous": ["Rec - Metrology and Visual inspection of flexes"],
             "Duration": 2,
+            "Required": 2,
             "Capacity": 1
         },
         {
             "Stage": "Reception",
             "Step": "Rec - Sensor IV of bare modules",
+            "Previous": ["Rec - Metrology weights of bare modules"],
             "Duration": 20,
+            "Required": 20,
             "Capacity": 1
         },
         {
             "Stage": "Flex-Attach",
             "Step": "FA - Glue flex to bare module",
+            "Previous": ["Rec - Sensor IV of bare modules", "Rec - Metrology weights of flexes"],
             "Duration": 30,
+            "Required": 30,
             "Capacity": 2
         },
         {
             "Stage": "Flex-Attach",
             "Step": "FA - Flex-Attach Glue curing",
+            "Previous": ["FA - Glue flex to bare module"],
             "Duration": 480,
+            "Required": 0,
             "Capacity": 2
         },
         {
             "Stage": "Flex-Attach",
             "Step": "FA - visual inspection of module",
+            "Previous": ["FA - Flex-Attach Glue curing"],
             "Duration": 10,
+            "Required": 10,
             "Capacity": 1
         },
         {
             "Stage": "Flex-Attach",
             "Step": "FA - Metrology weights of module",
+            "Previous":["FA - visual inspection of module"],
             "Duration": 2,
+            "Required": 2,
             "Capacity": 1
         },
          {
             "Stage": "Wire-bonding",
             "Step": "WB - Prepare wire-bonding requests",
+            "Previous": ["FA - Metrology weights of module"],
             "Duration": 20,
+            "Required": 20,
             "Capacity": 1
         },
         {
             "Stage": "Wire-bonding",
             "Step": "WB - Wire-bonding",
+            "Previous": ["WB - Prepare wire-bonding requests"],
             "Duration": 120,
+            "Required": 120,
             "Capacity": 1
         },
         {
             "Stage": "Wire-bonding",
             "Step": "WB - PDB Upload of wire-bonding pull-test results",
+            "Previous": ["WB - Wire-bonding"],
             "Duration": 10,
+            "Required": 10,
             "Capacity": 20
         },
         {
             "Stage": "Initial",
             "Step": "I - Warm Electrical Testing",
+            "Previous": ["WB - PDB Upload of wire-bonding pull-test results"],
             "Duration": 180,
+            "Required": 10,
             "Capacity": 8
         },
         {
             "Stage": "Initial",
             "Step": "I - Cold Electrical Testing",
+            "Previous": ["I - Warm Electrical Testing"],
             "Duration": 240,
+            "Required": 10,
             "Capacity": 8
         },
         {
             "Stage": "Parylene",
             "Step": "P - Masking",
+            "Previous": ["I - Cold Electrical Testing"],
             "Duration": 10,
+            "Required": 10,
             "Capacity": 1
         },
         {
             "Stage": "Parylene",
             "Step": "P - Mask Curing",
+            "Previous": ["P - Masking"],
             "Duration": 1,
+            "Required": 1,
             "Capacity": 1
         },
         {
             "Stage": "Parylene",
             "Step": "P - visual inspection after masking",
+            "Previous":["P - Mask Curing"],
             "Duration": 10,
+            "Required": 10,
             "Capacity": 1
         },
         {
             "Stage": "Parylene",
             "Step": "P - Shipping",
+            "Previous": ["P - visual inspection after masking"],
             "Duration": 10,
+            "Required": 10,
             "Capacity": 27
         },
         {
             "Stage": "Parylene",
             "Step": "P - Transit",
+            "Previous": ["P - Shipping"],
             "Duration": 30240,
+            "Required": 20,
             "Capacity": 27
         },
         {
             "Stage": "Parylene",
             "Step": "P - visual inspection after transit",
+            "Previous": ["P - Transit"],
             "Duration": 10,
+            "Required": 10,
             "Capacity": 1
         },
         {
             "Stage": "Parylene",
             "Step": "P - Demasking",
+            "Previous": ["P - visual inspection after transit"],
             "Duration": 20,
+            "Required": 20,
             "Capacity": 1
         },
         {
             "Stage": "Parylene",
             "Step": "P - visual inspection after unmasking",
+            "Previous": ["P - Demasking"],
             "Duration": 10,
+            "Required": 10,
             "Capacity": 1
         },
         {
             "Stage": "Parylene",
             "Step": "P - Post Parylene Warm",
+            "Previous": ["P - visual inspection after unmasking"],
             "Duration": 180,
+            "Required": 10,
             "Capacity": 8
         },
         {
             "Stage": "Parylene",
             "Step": "P - Post Parylene cold chiller cooldown",
+            "Previous": ["P - Post Parylene Warm"],
             "Duration": 120,
+            "Required": 10,
             "Capacity": 8
         },
         {
             "Stage": "Parylene",
             "Step": "P - Post Parylene Cold",
+            "Previous": ["P - Post Parylene cold chiller cooldown"],
             "Duration": 180,
+            "Required": 10,
             "Capacity": 8
         },
         {
             "Stage": "Parylene",
             "Step": "P - Post Parylene X-ray",
+            "Previous": ["P - Post Parylene Cold"],
             "Duration": 10,
+            "Required": 10,
             "Capacity": 1
         },
         {
             "Stage": "Wire-Bond Protection",
             "Step": "WBP - Preparation, glue mixing, canopy attachment",
+            "Previous": ["P - Post Parylene X-ray"],
             "Duration": 20,
+            "Required": 20,
             "Capacity": 5
         },
         {
             "Stage": "Wire-Bond Protection",
             "Step": "WBP - Wire-Bond Protection Glue curing",
+            "Previous": ["WBP - Preparation, glue mixing, canopy attachment"],
             "Duration": 480,
+            "Required": 0,
             "Capacity": 5
 
         },
         {
             "Stage": "Wire-Bond Protection",
             "Step": "WBP - Visual Inspection",
+            "Previous":["WBP - Wire-Bond Protection Glue curing"],
             "Duration": 10,
+            "Required": 10,
             "Capacity": 1
         },
         {
             "Stage": "Wire-Bond Protection",
             "Step": "WBP - Mass Measurement",
+            "Previous": ["WBP - Visual Inspection"],
             "Duration": 2,
+            "Required": 2,
             "Capacity": 1
         },
         {
             "Stage": "Wire-Bond Protection",
             "Step": "WBP - Resistance Measurement",
+            "Previous": ["WBP - Mass Measurement"],
             "Duration": 10,
+            "Required": 10,
             "Capacity": 1
         },
         {
             "Stage": "Wire-Bond Protection",
             "Step": "WBP - PDB Upload of visual inspection mass and resistance",
+            "Previous": ["WBP - Resistance Measurement"],
             "Duration": 1,
+            "Required": 1,
             "Capacity": 20
         },
         {
             "Stage": "Wire-Bond Protection",
             "Step": "WBP - MHT-PFA",
+            "Previous": ["WBP - PDB Upload of visual inspection mass and resistance"],
             "Duration": 60,
+            "Required": 60,
             "Capacity": 5
         },
         {
             "Stage": "Thermal Cycling",
             "Step": "TC - Cycle",
+            "Previous": ["WBP - MHT-PFA"],
             "Duration": 840,
+            "Required": 20,
             "Capacity": 8
         },
         {
             "Stage": "Thermal Cycling",
             "Step": "TC - PDB Upload of thermal cycling data",
+            "Previous": ["TC - Cycle"],
             "Duration": 1,
+            "Required": 1,
             "Capacity": 20
         },
         {
             "Stage": "Thermal Cycling",
             "Step": "TC - Back side metrology",
+            "Previous": ["TC - PDB Upload of thermal cycling data"],
             "Duration": 20,
+            "Required": 20,
             "Capacity": 1
         },
         {
             "Stage": "Thermal Cycling",
             "Step": "TC - PDB Upload of back side metrology",
+            "Previous": ["TC - Back side metrology"],
             "Duration": 1,
+            "Required": 1,
             "Capacity": 20
         },
         {
             "Stage": "Long Term Stability",
             "Step": "LTS - MHT-PFA",
+            "Previous": ["TC - PDB Upload of back side metrology"],
             "Duration": 60,
+            "Required": 60,
             "Capacity": 8
         },
         {
             "Stage": "Final",
             "Step": "F - Warm",
+            "Previous": ["LTS - MHT-PFA"],
             "Duration": 180,
+            "Required": 10,
             "Capacity": 8
         },
         {
             "Stage": "Final",
             "Step": "F - Cold",
+            "Previous": ["F - Warm"],
             "Duration": 240,
+            "Required": 10,
             "Capacity": 8
         },
         {
             "Stage": "Final",
             "Step": "F - X-ray",
+            "Previous": ["F - Cold"],
 	        "Duration": 20,
+            "Required": 20,
 	        "Capacity": 1
         },
         {
             "Stage": "Shipping",
             "Step": "S - Packaging",
+            "Previous": ["F - X-ray"],
             "Duration": 5,
+            "Required": 5,
             "Capacity": 1
         },
         {
             "Stage": "Shipping",
             "Step": "S - PDB Shipment of modules to loading sites",
+            "Previous": ["S - Packaging"],
             "Duration": 20,
-            "Capacity": 50
+            "Required": 20,
+            "Capacity": 10000
         }
     ],
     "StepsRequiringOperator": [
         "Rec - Storage of bare modules",
 		"Rec - Storage of flexes",
-		"Rec - PDB checks of bare modules and flexes",
+		"Rec - PDB checks of bare modules",
+        "Rec - PDB checks of flexes",
 		"Rec - Metrology and Visual inspection of bare modules or flexes",
 		"Rec - Metrology weights of bare modules",
 		"Rec - Metrology weights of flexes",
