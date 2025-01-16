@@ -7,6 +7,10 @@ from ObjectOrientedProductionSimulation import *
 state_of_production = pd.read_csv("inventory.csv", sep=";", dtype={"Quantity":'Int64'}, index_col=0, parse_dates=["Launching Time"])
 state_of_production.fillna({"Quantity": 0}, inplace=True)
 
+total_modules_number: int = sum(state_of_production.loc[:,"Quantity"])
+#for delivery in modules_planned_deliveries:
+#    total_modules_number += modules_planned_deliveries[delivery]
+
 # This piece of code fills by default the missing values of the Ready components launching time
 # to simulation_start_time - duration of the task to simulate the fact that they are just ready to 
 # be moved to the next step when the simulation is launched. 
