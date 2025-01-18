@@ -10,3 +10,5 @@ Bugs possibles :
 ex: 4 modules en WIP pour le collage alors qu'il n'est censé n'y avoir que 2 postes
 
 - Avoir un nombre égal de flex et de bare modules
+
+- Wire Bonding journée entière et 2 fois par semaine.
