@@ -9,6 +9,7 @@ from generate_operators_availability import generate_operators_availability, get
 from TasksHierarchy import tasks_by_priority
 from update_log import update_log
 from common import *
+from displays import Display
 
 
 
@@ -24,7 +25,7 @@ time = simulation_start
 
 modules_completed = sum(S___PDB_Shipment_of_modules_to_loading_sites.log["Entry_Date"].notna())
 
-while (time < simulation_end and modules_completed < 50):
+while (time < simulation_end and modules_completed < 50):   #TODO: Compute the number of final modules expected
 
     generate_operators_availability(time)  # TODO: Duplication of computation, we could do it once for the day
     to_do: list = tasks_by_priority(time)
@@ -48,7 +49,7 @@ while (time < simulation_end and modules_completed < 50):
             print("Err")
 
         # For now we chose at random two of the available operators to perform the task, the law according to which we chose the operators might be reweighted according to their skills
-        # Wire Bonding journée entière et 2 fois par semaine.
+
 
         chosen_operators: list = np.random.choice(operators_available, 2, replace=False)
         first_operator, second_operator = chosen_operators
@@ -61,14 +62,11 @@ while (time < simulation_end and modules_completed < 50):
         time += task.required
         was_a_task_assigned = True
 
-        print(f"task {task.name} assigned to operators {assigned_operators} at time {time}")
         break
 
     modules_completed = sum(S___PDB_Shipment_of_modules_to_loading_sites.log["Entry_Date"].notna())
 
+Display(operators_assignments)
 
-
-print("Computation finished here is the operators assignments : ")
-print(operators_assignments)
 
 

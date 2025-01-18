@@ -47,9 +47,9 @@ enable_operator_holidays = True
 time_increment = 15  # Can be adjusted to 1, 5, 10, 15, etc.
 
 # Extract work hours from JSON
-work_hours = json_data["WorkHours"]
-work_start = datetime.strptime(work_hours["work_start"], "%H:%M:%S").time()
-work_end = datetime.strptime(work_hours["work_end"], "%H:%M:%S").time()
+work_hours = json_data["OperatorWorkHours"]
+work_start = datetime.strptime(work_hours["start"], "%H:%M:%S").time()
+work_end = datetime.strptime(work_hours["end"], "%H:%M:%S").time()
 lunch_start = datetime.strptime(work_hours["lunch_start"], "%H:%M:%S").time()
 lunch_end = datetime.strptime(work_hours["lunch_end"], "%H:%M:%S").time()
 work_days = work_hours["work_days"]  # List of working days (e.g., [0, 1, 2, 3, 4] for Monday to Friday)
