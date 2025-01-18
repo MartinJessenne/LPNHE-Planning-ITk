@@ -8,3 +8,5 @@ str.endswith(suffix[, start[, end]])
 Bugs possibles : 
 - si jamais il y a plus de modules en WIP à une étape que la capacité indiquée sur dans le json
 ex: 4 modules en WIP pour le collage alors qu'il n'est censé n'y avoir que 2 postes
+
+- Avoir un nombre égal de flex et de bare modules
