@@ -1,6 +1,6 @@
 {
     "SimulationParameters": {
-        "num_modules": 20,
+        "num_modules": 40,
         "simulation_start": "2024-11-01T09:00:00",
         "simulation_end" : "2030-11-01T09:00"
     },
