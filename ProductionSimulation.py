@@ -23,9 +23,11 @@ operators_assignments: pd.DataFrame = pd.DataFrame(columns=list(Chronologically_
 
 time = simulation_start
 
+modules_to_do: int = int(input("Number of modules to simulate (it must coincides with the values in inventory.csv) : \n"))
+
 modules_completed = sum(S___PDB_Shipment_of_modules_to_loading_sites.log["Entry_Date"].notna())
 
-while (time < simulation_end and modules_completed < 50):   #TODO: Compute the number of final modules expected
+while (time < simulation_end and modules_completed < modules_to_do):   #TODO: Compute the number of final modules expected
 
     generate_operators_availability(time)  # TODO: Duplication of computation, we could do it once for the day
     to_do: list = tasks_by_priority(time)
