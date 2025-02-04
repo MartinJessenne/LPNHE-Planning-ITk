@@ -9,6 +9,7 @@ from generate_operators_availability import generate_operators_availability, get
 from TasksHierarchy import tasks_by_priority
 from update_log import update_log
 from common import *
+from Operator_assignement import assign_operators
 from displays import Display
 
 
@@ -40,33 +41,23 @@ while (time < simulation_end and modules_completed < modules_to_do):   #TODO: Co
         # if two operators are available, and qualified for the task we assign them to the task
         task = to_do.pop(0)
 
-        time = get_next_available_time_for_task(time, task)
+        time = get_next_available_time_for_task(time, task) # returns the current time if the task can be done at the current time
 
         task_duration: Interval = Interval(time, time + task.required, task.name)
 
-        operators_available: list = [operator for operator in operators if is_task_assignable(operator.availability,
-                                                                                              task_duration) and task.name in operator.skills]
+        operators_available: list = [operator for operator in operators if is_task_assignable(operator.availability, task_duration) and task.name in operator.skills]
 
         if len(operators_available) < 2:
             print("Err")
 
-        # For now we chose at random two of the available operators to perform the task, the law according to which we chose the operators might be reweighted according to their skills
-
-
-        chosen_operators: list = np.random.choice(operators_available, 2, replace=False)
-        first_operator, second_operator = chosen_operators
-        first_operator.availability.chop(time, time + task.required)
-        second_operator.availability.chop(time, time + task.required)
-        assigned_operators = (first_operator.name, second_operator.name)
-        operators_assignments.loc[time, task.name] = assigned_operators
+        assign_operators(time, operators_available, task, operators_assignments)
 
         update_log(task, time)
         time += task.required
         was_a_task_assigned = True
 
-        break
-
     modules_completed = sum(S___PDB_Shipment_of_modules_to_loading_sites.log["Entry_Date"].notna())
+
 
 Display(operators_assignments)
 
