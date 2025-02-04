@@ -8,8 +8,9 @@ from common import *
 # Extract the holidays, and daily shift from the data
 dict_int_to_day = {"0": "Monday", "1": "Tuesday", "2": "Wednesday", "3": "Thursday", "4": "Friday"}
 
+# In this function we generate the availability of the operator day wise
 def generate_operators_availability(date: datetime) -> None:
-# Let's try to generate the availability of the operator day wise
+
     weekday: str = str(date.weekday())
 
     for operator in operators:
@@ -45,6 +46,7 @@ def is_task_assignable(tree: IntervalTree, task_duration: Interval) -> bool:    
     return assignable
 
 
+# The following function generates an interval tree of all the hourshifts were at least one operator is available
 def generate_lab_hours(date: datetime) -> IntervalTree:
     lab_hours: IntervalTree = IntervalTree()
     generate_operators_availability(date)
@@ -52,7 +54,7 @@ def generate_lab_hours(date: datetime) -> IntervalTree:
         lab_hours |= operator.availability
     return lab_hours
 
-
+# The following function generates a time at which the task can be done
 def get_next_available_time_for_task(time: datetime, task: Step) -> datetime:
     task_duration: Interval = Interval(time, time + task.required, task.name)
     operators_available: list = [operator for operator in operators if is_task_assignable(operator.availability, task_duration) and task.name in operator.skills]

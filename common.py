@@ -66,7 +66,7 @@ for id, operator in enumerate(data["Operators"]):
     operators.append(globals()[f"Operator{id + 1}"])
 
 # Initialization of the Step class instances, they are stored in the "Chronologically_Ordered_Steps" dict, the member log is a dataframe that will contain
-# the entry and exit dates of the modules at each step
+# the entry and exit dates of the modules at each step.
 
 Chronologically_Ordered_Steps = {}
 for step in data["StagesAndSteps"]:
