@@ -1,7 +1,11 @@
 ## Automatic Planning Tool
 
 LPNHE-Planning-ITk is a Python script developed to automate operator assignments as part of the international effort to upgrade the Pixel Detector of the ATLAS experiment at the LHC. The tool is designed to optimize the scheduling of tasks and operator assignments based on real-world production constraints, such as raw product availability, task durations, task dependencies, operator skills, and their availability.
-Overview
+
+![image](https://github.com/user-attachments/assets/c4e37f23-b3b6-4574-b351-339e9ecfc0b3)
+
+
+## Overview
 
 # This project provides an automated solution to:
 
@@ -18,7 +22,8 @@ Overview
  - Schedule operators in realistic unsegmented shifts.
 
 The solution addresses limitations and challenges present in the original script provided by the CERN collaboration. The original script has been completely recoded and improved in this version. For reference, you can view the original CERN project here: itk-module-production-simulator.
-Features
+
+# Features
 
  - Dynamic Operator Assignment: Computes operator assignments based on the current production state, raw product input, and task dependencies.
 
@@ -65,7 +70,7 @@ Your script may support additional arguments for:
 
    - Displaying a summary of the operator assignment.
 
-Configuration
+# Configuration
 
 Adjust the scheduling parameters and operator availability in the configuration file (e.g., config.json or similar). This file might include:
 
@@ -102,10 +107,8 @@ Contributions are welcome! If you have suggestions, improvements, or bug fixes, 
    - Open a pull request describing your changes.
 
 For major changes, please open an issue first to discuss what you would like to modify.
-License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
-Acknowledgements
+# Acknowledgements
 
    - Thanks to the CERN collaboration for the original script as part of the itk-module-production-simulator project.
 
